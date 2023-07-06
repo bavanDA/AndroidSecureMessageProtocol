@@ -112,10 +112,9 @@ class SMSActivity : AppCompatActivity() {
                 Log.d("MY_APP", "$number $text $type")
                 try {
                     val deText = decryptText(cursor.getString(textColIdx), key.toString())
-                    if(type=="2")
-                        chatItems.add(ChatAdapter.ChatItem(number, deText))
+                    chatItems.add(ChatAdapter.ChatItem(number, deText))
                 } catch (e: Exception) {
-                    chatItems.add(ChatAdapter.ChatItem(number, text))
+//                    chatItems.add(ChatAdapter.ChatItem(number, text))
                     Log.v("decrypt","Error occurred during decryption: ${e.message}")
                 }
 

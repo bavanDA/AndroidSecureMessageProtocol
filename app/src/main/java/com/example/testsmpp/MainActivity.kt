@@ -184,10 +184,6 @@ class MainActivity : AppCompatActivity() {
         if (aReceiveVal) {
             val hashTmp = hashText(text)
             showSendStatus(true,false)
-            Log.v("HASH BAVAN text ",text)
-            Log.v("HASH BAVAN hashTmp ",  hashTmp)
-            Log.v("HASH BAVAN aText ",aText)
-
 
             if(hashTmp==aText && aNumber == number)
                 showAckStatus(true, false)

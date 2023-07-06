@@ -31,15 +31,17 @@ class Smpp(private val context: Context) : DefaultSmppSessionHandler() {
     fun sendSMS(number: String, text: String): Boolean {
         try {
 
+
+            val client = DefaultSmppClient()
+            val session = client.bind(getSessionConfig(SmppBindType.TRANSCEIVER))
+
             val sharedPref = context.getSharedPreferences(
                 "gateway_config",
                 AppCompatActivity.MODE_PRIVATE
             )
+
             val key = sharedPref.getString("key", "")
             val enText = SecurityUtil.encryptText(text, key.toString())
-
-            val client = DefaultSmppClient()
-            val session = client.bind(getSessionConfig(SmppBindType.TRANSCEIVER))
 
             val sm = createSubmitSm("9891211", "98$number", "$$$enText$$", "UCS-2")
 
@@ -47,7 +49,6 @@ class Smpp(private val context: Context) : DefaultSmppSessionHandler() {
             session.submit(sm, TimeUnit.SECONDS.toMillis(60))
             Log.v("smpp", "hello")
             println("Message sent")
-
             println("Wait 10 seconds")
 
             TimeUnit.SECONDS.sleep(10)
@@ -129,12 +130,9 @@ class Smpp(private val context: Context) : DefaultSmppSessionHandler() {
     }
 
     override fun firePduRequestReceived(pduRequest: PduRequest<*>): PduResponse? {
-        Log.v("happy", "hiii")
         val response = pduRequest.createResponse()
         val sms = pduRequest as DeliverSm
         if (sms.dataCoding.toInt() == 0) {
-            //message content is English
-            println("***** New English Message Received *****")
             println("From: " + sms.sourceAddress.address)
             println("To: " + sms.destAddress.address)
             println("Content: " + String(sms.shortMessage))
