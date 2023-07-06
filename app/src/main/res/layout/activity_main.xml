@@ -1,118 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewServerAddressLabel"
-        android:layout_width="wrap_content"
+    <!-- Navbar -->
+    <LinearLayout
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Server Address:"
-        android:textColor="#333333"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="#2196F3"
+        android:orientation="vertical"
+        android:padding="10dp">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:orientation="horizontal">
+            <!-- Sms button -->
+            <ImageButton
+                android:id="@+id/sms_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="?attr/selectableItemBackground"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:src="@drawable/baseline_sms_24" />
+
+            <!-- Settings button -->
+            <ImageButton
+                android:id="@+id/settings_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:src="@drawable/baseline_settings_24" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- Number input -->
     <EditText
-        android:id="@+id/editTextHost"
-        android:layout_width="0dp"
+        android:id="@+id/number_input"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter host name or IP address"
-        android:padding="16dp"
-        android:textColor="#333333"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewServerAddressLabel" />
+        android:layout_below="@id/navbar"
+        android:layout_margin="16dp"
+        android:hint="Enter a number"
+        android:inputType="number" />
 
 
+
+    <!-- Text input -->
     <TextView
-        android:id="@+id/textViewPortLabel"
-        android:layout_width="wrap_content"
+        android:id="@+id/date_textview"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Port:"
-        android:textColor="#333333"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextHost" />
+        android:layout_below="@id/number_input"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="Date: fdsfd"
+        android:layout_marginBottom="16dp"
+        android:inputType="text" />
 
-    <EditText
-        android:id="@+id/editTextPort"
-        android:layout_width="0dp"
+    <!-- Submit button -->
+    <Button
+        android:id="@+id/arrive_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter port number"
-        android:padding="16dp"
-        android:textColor="#333333"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewPortLabel" />
-    <TextView
-        android:id="@+id/textViewUsernameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Username:"
-        android:textColor="#333333"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextPort" />
-
-    <EditText
-        android:id="@+id/editTextUsername"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter username"
-        android:padding="16dp"
-        android:textColor="#333333"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewUsernameLabel" />
-
-    <TextView
-        android:id="@+id/textViewPasswordLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Password:"
-        android:textColor="#333333"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextUsername" />
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter password"
-        android:inputType="textPassword"
-        android:padding="16dp"
-        android:textColor="#333333"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewPasswordLabel" />
+        android:layout_below="@id/date_textview"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="16sp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Arrive" />
 
     <Button
-        android:id="@+id/buttonSubmit"
+        android:id="@+id/exit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/arrive_button"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="16sp"
+        android:backgroundTint="#550303"
+        android:text="Exit" />
+
+
+    <TextView
+        android:id="@+id/status_sm_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:paddingStart="32dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="32dp"
-        android:paddingBottom="12dp"
-        android:text="Submit"
-        android:textColor="#ffffff"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
+        android:layout_below="@id/exit_button"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="10dp"
+        android:text="The message has been successfully sent. "
+        android:textColor="@color/teal_700"
+        android:textSize="18dp"
+        android:visibility="gone"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/status_sa_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/status_sm_textview"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:text="Acknowledgment has been received."
+        android:textColor="@color/teal_700"
+        android:textSize="18dp"
+        android:visibility="gone"/>
+
+
+    <TextView
+        android:id="@+id/status_fa_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/status_sm_textview"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:text="Acknowledgment hasn't been received yet."
+        android:textColor="#910101"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/status_fm_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/exit_button"
+        android:layout_margin="40dp"
+        android:text="The message wasn't sent. \nPlease try again. "
+        android:textColor="#910101"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/exit_button"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        android:orientation="vertical"
+      >
+
+
+        <TextView
+            android:id="@+id/crypt_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:paddingLeft="30dp"
+            android:text="result" />
+
+        <Button
+            android:id="@+id/crypt_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Crypt" />
+
+        <TextView
+            android:id="@+id/decrypt_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:paddingLeft="30dp"
+            android:text="result" />
+
+        <Button
+            android:id="@+id/decrypt_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="deCrypt" />
+
+        <TextView
+            android:id="@+id/hash_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:paddingLeft="30dp"
+            android:text="result" />
+
+
+        <Button
+            android:id="@+id/hash_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Hash" />
+
+    </LinearLayout>
+
+</RelativeLayout>
