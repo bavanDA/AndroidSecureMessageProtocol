@@ -1,3 +1,10 @@
+# Usage
+ابتدا برنامه ozeki را connect کنید و اطلاعات را وارد تنظیمات اپ کنید. می‌توانید برای قسمت کلید از یک کلید رندوم انتخاب کنید ( البته باید برای سرور هم تغییر بدید) یا از کلید `a7b2c3d4e5f6g789abcdef0123456789` استفاده کنید.
+
+[لینک دانلود Ozeki_Smpp_Sms_Gateway_Lite](https://github.com/samanmohammadraouf/AndroidSecureMessageProtocol/releases/download/v1/Ozeki_Smpp_Sms_Gateway_Lite.apk)
+
+[لینک دانلود SmppClient](https://github.com/samanmohammadraouf/AndroidSecureMessageProtocol/releases/download/v1/SmppClient.apk)
+
 # ScreenShots
 
 | ![send sms](ScreenShots/mainActivty1.jpg) | ![receive ack](ScreenShots/mainActivty2.jpg) |
